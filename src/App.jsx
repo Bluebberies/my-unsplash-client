@@ -120,6 +120,8 @@ const App = () => {
     }
   }
 
+  console.log(import.meta.env.VITE_SERVER);
+
   async function handleSubmit() {
     try {
       setShowLoader(true);
@@ -162,7 +164,7 @@ const App = () => {
     setLabelError(null);
     setUrlError(null);
     enableBodyScroll(<AddPhoto />);
-    setShowLoader(false)
+    setShowLoader(false);
   }
 
   function handleShowDelete(item) {
