@@ -121,7 +121,7 @@ const App = () => {
   }
 
   console.log(import.meta.env.VITE_SERVER);
-  console.log("hello");
+  console.log("hello world");
 
   async function handleSubmit() {
     try {
