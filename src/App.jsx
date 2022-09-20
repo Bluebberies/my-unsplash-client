@@ -130,7 +130,7 @@ const App = () => {
       !file ? fd.append("avatar", file) : fd.append("avatar", file, label);
       const { data } = file
         ? await http.post(import.meta.env.VITE_SERVER, fd)
-        : await http.post(import.meta.env.VITE_SERVER, { label, url });
+        : await http.post('https://myunsplahproject.herokuapp.com/', { label, url });
       if (data.message || data.error) {
         setUrlError(
           "Something failed! (check the url/file type or your internet!)"
