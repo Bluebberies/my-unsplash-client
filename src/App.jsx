@@ -120,17 +120,18 @@ const App = () => {
     }
   }
 
-  console.log(import.meta.env.VITE_SERVER);
-  console.log("hello world");
-
+  const serverUrl = import.meta.env.VITE_SERVER || "https://myunsplahproject.herokuapp.com/"
   async function handleSubmit() {
     try {
       setShowLoader(true);
       const fd = new FormData();
       !file ? fd.append("avatar", file) : fd.append("avatar", file, label);
       const { data } = file
-        ? await http.post(import.meta.env.VITE_SERVER, fd)
-        : await http.post('https://myunsplahproject.herokuapp.com/', { label, url });
+        ? await http.post(serverUrl, fd)
+        : await http.post(serverUrl, {
+            label,
+            url,
+          });
       if (data.message || data.error) {
         setUrlError(
           "Something failed! (check the url/file type or your internet!)"
